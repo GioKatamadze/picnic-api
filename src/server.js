@@ -12,7 +12,7 @@ app.get("/", (_, res) => {
     .pipe(csvParser)
     .on("data", (data) => results.push(data))
     .on("end", () => {
-      console.log(results);
+      res.status(200).json(results);
     });
 });
 app.listen(process.env.PORT || 5000);
